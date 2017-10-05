@@ -1,6 +1,6 @@
 projet_forum:
     resource: "@ProjetForumBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /forum
 
 # app/config/routing.yml
 
