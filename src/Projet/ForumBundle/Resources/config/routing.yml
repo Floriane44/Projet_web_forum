@@ -1,3 +1,64 @@
 projet_forum_homepage:
     path:     /
     defaults: { _controller: ProjetForumBundle:Forum:index }
+
+projet_forum_view_category:
+    path:      /category/{category_id}
+    defaults:
+        _controller: ProjetForumBundle:Forum:viewCategory
+    requirements:
+        category_id: \d+
+
+projet_forum_view_subCategory:
+    path:     /category/{category_id}/subCategory/{subCategory_id}
+    defaults:
+        _controller: ProjetForumBundle:Forum:viewSubCategory
+    requirements:
+        category_id: \d+
+        subCategory_id: \d+
+
+projet_forum_view_subject:
+    path:     /category/{category_id}/subCategory/{subCategory_id}/subject/{subject_id}
+    defaults:
+        _controller: ProjetForumBundle:Forum:viewSubject
+    requirements:
+        category_id: \d+
+        subCategory_id: \d+
+        subject_id: \d+
+
+projet_forum_add_theme:
+    path:     /addTheme
+    defaults: { _controller: ProjetForumBundle:Forum:addTheme }
+
+projet_forum_add_category:
+    path:     /addCategory
+    defaults: { _controller: ProjetForumBundle:Forum:addCategory }
+
+projet_forum_add_sub_category:
+    path:     /{category_id}/addSubCategory
+    defaults: { _controller: ProjetForumBundle:Forum:addSubCategory }
+    requirements:
+        category_id: \d+
+
+projet_forum_add_subject:
+    path:     /{category_id}/{subCategory_id}/addSubject
+    defaults: { _controller: ProjetForumBundle:Forum:addSubject }
+    requirements:
+        category_id: \d+
+        subCategory_id: \d+
+
+projet_forum_edit_subject:
+    path:     /{category_id}/{subCategory_id}/editSubject/{subject_id}
+    defaults: { _controller: ProjetForumBundle:Forum:editSubject }
+    requirements:
+        category_id: \d+
+        subCategory_id: \d+
+        subject_id: \d+
+
+projet_forum_delete_subject:
+    path:     /{category_id}/{subCategory_id}/deleteSubject/{subject_id}
+    defaults: { _controller: ProjetForumBundle:Forum:deleteSubject }
+    requirements:
+        category_id: \d+
+        subCategory_id: \d+
+        subject_id: \d+

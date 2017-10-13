@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0abc03ef6162a8e9f6a2bf6c09c5ee78",
+    "content-hash": "50f579e8086a16841fbde5387f9b77aa",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -108,6 +108,63 @@
                 "tls"
             ],
             "time": "2017-09-11T07:24:36+00:00"
+        },
+        {
+            "name": "coresphere/console-bundle",
+            "version": "0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CoreSphere/ConsoleBundle.git",
+                "reference": "7761030372974d890bc19cee38f23a6f43c2d974"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CoreSphere/ConsoleBundle/zipball/7761030372974d890bc19cee38f23a6f43c2d974",
+                "reference": "7761030372974d890bc19cee38f23a6f43c2d974",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5|^7.0",
+                "symfony/console": "~2.7|~3.0",
+                "symfony/dependency-injection": "~2.7|~3.0",
+                "symfony/event-dispatcher": "~2.7|~3.0",
+                "symfony/framework-bundle": "~2.7|~3.0",
+                "symfony/http-kernel": "~2.7|~3.0"
+            },
+            "require-dev": {
+                "doctrine/doctrine-fixtures-bundle": "^2.2",
+                "doctrine/doctrine-migrations-bundle": "^1.0",
+                "phpunit/phpunit": "^4.8",
+                "symfony/finder": "^2.7",
+                "symfony/templating": "^3.2"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "CoreSphere\\ConsoleBundle\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Laszlo Korte",
+                    "email": "coresphere@laszlokorte.de"
+                },
+                {
+                    "name": "Marmus Ullman",
+                    "email": "mail@markus-ullmann.de"
+                }
+            ],
+            "description": "This bundle allows you accessing the symfony2 console via your browser",
+            "keywords": [
+                "console",
+                "javascript",
+                "symfony"
+            ],
+            "time": "2017-02-22T13:12:30+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -519,16 +576,16 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "1.6.11",
+            "version": "1.6.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "829499731395e1ecdf0e3f5cca3119f94f79c8e6"
+                "reference": "96a074a6202d6caf504fb728688f89bb76caf987"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/829499731395e1ecdf0e3f5cca3119f94f79c8e6",
-                "reference": "829499731395e1ecdf0e3f5cca3119f94f79c8e6",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/96a074a6202d6caf504fb728688f89bb76caf987",
+                "reference": "96a074a6202d6caf504fb728688f89bb76caf987",
                 "shasum": ""
             },
             "require": {
@@ -596,7 +653,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2017-10-04T22:58:25+00:00"
+            "time": "2017-10-08T14:49:13+00:00"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -1054,12 +1111,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "3fc7e36b37dda4bd41b5a5628c41afac26bcb6f4"
+                "reference": "9d6fe9a5edccc67b5cb6b5bfd87e84003c2aa002"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/3fc7e36b37dda4bd41b5a5628c41afac26bcb6f4",
-                "reference": "3fc7e36b37dda4bd41b5a5628c41afac26bcb6f4",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/9d6fe9a5edccc67b5cb6b5bfd87e84003c2aa002",
+                "reference": "9d6fe9a5edccc67b5cb6b5bfd87e84003c2aa002",
                 "shasum": ""
             },
             "require": {
@@ -1123,7 +1180,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2017-10-04T06:31:38+00:00"
+            "time": "2017-10-09T10:58:35+00:00"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -2651,16 +2708,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.3.9",
+            "version": "v3.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "a9d2f68ae9946000e2bcc3403d218ec0124f992a"
+                "reference": "cfef3b2d505ae4375b17032bd03ed9a3da4b7b43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/a9d2f68ae9946000e2bcc3403d218ec0124f992a",
-                "reference": "a9d2f68ae9946000e2bcc3403d218ec0124f992a",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/cfef3b2d505ae4375b17032bd03ed9a3da4b7b43",
+                "reference": "cfef3b2d505ae4375b17032bd03ed9a3da4b7b43",
                 "shasum": ""
             },
             "require": {
@@ -2800,7 +2857,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-09-11T16:13:42+00:00"
+            "time": "2017-10-05T23:40:32+00:00"
         },
         {
             "name": "twig/extensions",
@@ -2982,7 +3039,7 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v2.8.27",
+            "version": "v2.8.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",

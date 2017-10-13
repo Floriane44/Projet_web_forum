@@ -1,6 +1,9 @@
 projet_forum:
     resource: "@ProjetForumBundle/Resources/config/routing.yml"
-    prefix:   /forum
+    prefix:   /{_locale}/forum
+    requirements:
+        _locale: en|fr # les locales disponibles, séparées par des pipes « | »
+
 
 # app/config/routing.yml
 
@@ -33,20 +36,30 @@ projet_forum:
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
-    prefix: /forum
+    prefix: /{_locale}
+    requirements:
+        _locale: en|fr
 
 fos_user_profile:
     resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /forum/profile
+    prefix: /{_locale}/profile
+    requirements:
+        _locale: en|fr
 
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
-    prefix: /forum/register
+    prefix: /{_locale}/register
+    requirements:
+        _locale: en|fr
 
 fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"
-    prefix: /forum/resetting
+    prefix: /{_locale}/resetting
+    requirements:
+        _locale: en|fr
 
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /forum/profile
+    prefix: /{_locale}/profile
+    requirements:
+        _locale: en|fr

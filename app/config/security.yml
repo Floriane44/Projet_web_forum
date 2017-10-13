@@ -33,7 +33,7 @@ security:
                 default_target_path: projet_forum_homepage
             logout:
                 path:       fos_user_security_logout
-                target:     fos_user_security_login
+                target:     projet_forum_homepage
             remember_me:
                 secret:     %secret% # %secret% est un paramètre de parameter
             # activate different ways to authenticate
@@ -51,3 +51,6 @@ security:
         - { path: ^/admin, roles: ROLE_ADMIN }
         #- { path: ^/admin, ip: 127.0.0.1, requires_channel: https }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+
+    acl:
+        connection: default
