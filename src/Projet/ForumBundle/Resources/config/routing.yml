@@ -55,6 +55,15 @@ projet_forum_edit_subject:
         subCategory_id: \d+
         subject_id: \d+
 
+projet_forum_edit_comment:
+    path:     /{category_id}/{subCategory_id}/{subject_id}/editComment/{comment_id}
+    defaults: { _controller: ProjetForumBundle:Forum:editComment }
+    requirements:
+        category_id: \d+
+        subCategory_id: \d+
+        subject_id: \d+
+        comment_id: \d+
+
 projet_forum_delete_subject:
     path:     /{category_id}/{subCategory_id}/deleteSubject/{subject_id}
     defaults: { _controller: ProjetForumBundle:Forum:deleteSubject }
@@ -62,3 +71,12 @@ projet_forum_delete_subject:
         category_id: \d+
         subCategory_id: \d+
         subject_id: \d+
+
+projet_forum_delete_comment:
+    path:     /{category_id}/{subCategory_id}/{subject_id}/deleteComment/{comment_id}
+    defaults: { _controller: ProjetForumBundle:Forum:deleteComment }
+    requirements:
+        category_id: \d+
+        subCategory_id: \d+
+        subject_id: \d+
+        comment_id: \d+
