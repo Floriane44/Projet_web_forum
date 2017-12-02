@@ -41,7 +41,7 @@ fos_user_security:
         _locale: en|fr
 
 fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
+    resource: "@ProjetUserBundle/Resources/config/routing/profile.yml"
     prefix: /{_locale}/profile
     requirements:
         _locale: en|fr
@@ -61,11 +61,5 @@ fos_user_resetting:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /{_locale}/profile
-    requirements:
-        _locale: en|fr
-
-fos_user_group:
-    resource: "@FOSUserBundle/Resources/config/routing/group.xml"
-    prefix: /{_locale}/group
     requirements:
         _locale: en|fr

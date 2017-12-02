@@ -95,6 +95,9 @@ fos_user:
     registration:
         form:
             type: Projet\UserBundle\Form\RegistrationType
+    profile:
+        form:
+            type: Projet\UserBundle\Form\ProfileType
 
 assetic:
     debug:          '%kernel.debug%'

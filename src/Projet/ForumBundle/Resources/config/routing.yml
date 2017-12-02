@@ -1,6 +1,17 @@
 projet_forum_homepage:
     path:     /
-    defaults: { _controller: ProjetForumBundle:Forum:index }
+    defaults: 
+        _controller: ProjetForumBundle:Forum:index
+
+projet_forum_listmembers:
+    path:     /members
+    defaults:
+        _controller: ProjetForumBundle:Forum:members
+
+projet_forum_apropos:
+    path:     /apropos
+    defaults:
+        _controller: ProjetForumBundle:Forum:apropos
 
 projet_forum_view_category:
     path:      /category/{category_id}
@@ -28,28 +39,33 @@ projet_forum_view_subject:
 
 projet_forum_add_theme:
     path:     /addTheme
-    defaults: { _controller: ProjetForumBundle:Forum:addTheme }
+    defaults: 
+        _controller: ProjetForumBundle:Forum:addTheme
 
 projet_forum_add_category:
     path:     /addCategory
-    defaults: { _controller: ProjetForumBundle:Forum:addCategory }
+    defaults: 
+        _controller: ProjetForumBundle:Forum:addCategory
 
 projet_forum_add_sub_category:
     path:     /{category_id}/addSubCategory
-    defaults: { _controller: ProjetForumBundle:Forum:addSubCategory }
+    defaults: 
+        _controller: ProjetForumBundle:Forum:addSubCategory
     requirements:
         category_id: \d+
 
 projet_forum_add_subject:
     path:     /{category_id}/{subCategory_id}/addSubject
-    defaults: { _controller: ProjetForumBundle:Forum:addSubject }
+    defaults: 
+        _controller: ProjetForumBundle:Forum:addSubject
     requirements:
         category_id: \d+
         subCategory_id: \d+
 
 projet_forum_edit_subject:
     path:     /{category_id}/{subCategory_id}/editSubject/{subject_id}
-    defaults: { _controller: ProjetForumBundle:Forum:editSubject }
+    defaults: 
+        _controller: ProjetForumBundle:Forum:editSubject
     requirements:
         category_id: \d+
         subCategory_id: \d+
@@ -57,7 +73,8 @@ projet_forum_edit_subject:
 
 projet_forum_edit_comment:
     path:     /{category_id}/{subCategory_id}/{subject_id}/editComment/{comment_id}
-    defaults: { _controller: ProjetForumBundle:Forum:editComment }
+    defaults: 
+        _controller: ProjetForumBundle:Forum:editComment
     requirements:
         category_id: \d+
         subCategory_id: \d+
@@ -66,7 +83,8 @@ projet_forum_edit_comment:
 
 projet_forum_delete_subject:
     path:     /{category_id}/{subCategory_id}/deleteSubject/{subject_id}
-    defaults: { _controller: ProjetForumBundle:Forum:deleteSubject }
+    defaults: 
+        _controller: ProjetForumBundle:Forum:deleteSubject
     requirements:
         category_id: \d+
         subCategory_id: \d+
@@ -74,7 +92,8 @@ projet_forum_delete_subject:
 
 projet_forum_delete_comment:
     path:     /{category_id}/{subCategory_id}/{subject_id}/deleteComment/{comment_id}
-    defaults: { _controller: ProjetForumBundle:Forum:deleteComment }
+    defaults: 
+        _controller: ProjetForumBundle:Forum:deleteComment
     requirements:
         category_id: \d+
         subCategory_id: \d+
