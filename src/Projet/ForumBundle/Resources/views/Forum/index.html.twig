@@ -1,0 +1,45 @@
+{% extends "ProjetForumBundle::layout.html.twig" %}
+
+{#{% block repere %}
+	<p>{{ 'Sujets'|trans }}</p>
+{% endblock %}#}
+
+{% block list %}
+	{% if listThemes|length > 0 %}
+		<ul class="panel panel-default">
+			{% for theme in listThemes %}
+				
+				<li class="panel-heading head">
+					<div>
+						<h4>{{ theme.name|trans }}</h4>
+					</div>
+				</li>
+				{% if theme.categories|length > 0 %}
+				<ul class="list-group list-group-hover list-group-striped">
+					{% for category in theme.categories %}
+						<li class="media">
+							<div class="category">
+								<i class="fa fa-envelope fa-5x media-object pull-left enveloppe" aria-hidden="true"></i>
+								<div class="media-body">
+									<a href="{{ path('projet_forum_view_category', {'category_id': category.id}) }}" class="body-title">{{ category.name|trans }}</a>
+									<p class="desc">{{ category.description|trans }}</p>
+								</div>
+							</div>
+						</li>
+					{% endfor %}
+				</ul>
+				{% endif %}
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endblock %}
+{% block autre %}
+	{% if is_granted('ROLE_ADMIN') %}
+		<p>
+			<a href="{{ path('projet_forum_add_theme') }}" class="btn btn-lg btn-primary"><span id="add" class="glyphicon glyphicon-pencil"></span>{{ 'Ajouter un thème'|trans }}</a>
+		</p>
+		<p>
+			<a href="{{ path('projet_forum_add_category') }}" class="btn btn-lg btn-primary"><span id="add" class="glyphicon glyphicon-pencil"></span>{{ 'Ajouter une catégorie'|trans }}</a>
+		</p>
+	{% endif %}
+{% endblock %}

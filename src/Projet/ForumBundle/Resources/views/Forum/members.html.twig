@@ -1,0 +1,20 @@
+{% extends "ProjetForumBundle::layout.html.twig" %}
+
+{% block repere %}
+	<h2>{{ 'Membres du forum'|trans }}</h2><br />
+	{% if listMembers|length > 0 %}
+		<ul class="list-group list-group-striped list-group-hover col-md-6 col-md-offset-3">
+		{% for member in listMembers %}
+			<li class="list-group-item">
+				<h4 class="list-group-item-heading"><a href="{{ path('fos_user_profile_show_name', {'user_id': member.id}) }}">{{ member.username }}</a></h4>
+				<p class="list-group-item-text pull-right">{{ member.email }}</p>
+				{% if member.image is not null %}
+					<img src="{{ asset(member.image.webPath) }}" alt="{{ asset(member.image.alt) }}" width="90px" height="90px">
+				{% else %}
+					<img src="{{ asset('bundles/projetforum/img/avatar.png') }}" alt="no avatar" width="90px" height="90px">
+				{% endif %}
+			</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+{% endblock %}

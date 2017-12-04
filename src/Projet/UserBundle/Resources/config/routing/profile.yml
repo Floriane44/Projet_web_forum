@@ -1,0 +1,13 @@
+fos_user_profile_show:
+    path: /
+    defaults: { _controller: FOSUserBundle:Profile:show }
+
+fos_user_profile_edit:
+    path: /edit
+    defaults: { _controller: FOSUserBundle:Profile:edit }
+
+fos_user_profile_show_name:
+    path: /{user_id}
+    defaults: { _controller: FOSUserBundle:Profile:show }
+    requirements: 
+        user_id: \d+

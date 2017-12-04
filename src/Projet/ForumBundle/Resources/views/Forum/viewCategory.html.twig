@@ -1,0 +1,40 @@
+{% extends "ProjetForumBundle::layout.html.twig" %}
+
+{% block repere %}
+	<ul class="breadcrumb" id="help">
+		<li><a href="{{ path('projet_forum_homepage') }}">{{ 'Accueil'|trans }}</a></li>
+		<li class="active">{{ category.name|trans }}</li>
+	</ul>
+{% endblock %}
+
+{% block list %}
+<ul class="panel panel-default">
+	<li class="panel-heading head">
+		<div>
+			<h4>{{ category.name|trans }}</h4>
+		</div>
+	</li>
+	{% if listSubCategories|length > 0 %}
+		<ul class="list-group list-group-hover list-group-striped">
+		{% for subCategory in listSubCategories %}
+			<li class="media">
+				<div class="category">
+					<i class="fa fa-envelope fa-5x media-object pull-left enveloppe" aria-hidden="true" id="icone-float"></i>
+					<div class="media-body">
+						<a href="{{ path('projet_forum_view_subCategory', {'category_id': category.id, 'subCategory_id': subCategory.id}) }}" class="body-title">{{ subCategory.name|trans }}</a>
+					</div>
+				</div>
+			</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+</ul>
+{% endblock %}
+
+{% block autre %}
+	{% if is_granted('ROLE_ADMIN') %}
+		<p>
+			<a href="{{ path('projet_forum_add_sub_category', {'category_id': category.id}) }}" class="btn btn-lg btn-primary"><span id="add" class="glyphicon glyphicon-pencil"></span>{{ 'Ajouter une sous-catégorie'|trans }}</a>
+		</p>
+	{% endif %}
+{% endblock %}

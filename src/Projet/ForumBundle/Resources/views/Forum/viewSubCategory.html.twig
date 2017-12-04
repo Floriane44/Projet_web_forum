@@ -1,0 +1,43 @@
+{% extends "ProjetForumBundle::layout.html.twig" %}
+
+{% block repere %}
+	<ul class="breadcrumb" id="help">
+		<li><a href="{{ path('projet_forum_homepage') }}">{{ 'Accueil'|trans }}</a></li>
+		<li><a href="{{ path('projet_forum_view_category', {'category_id': category.id}) }}">{{ category.name|trans }}</a></li>
+		<li class="active">{{ subCategory.name|trans }}</li>
+	</ul>
+{% endblock %}
+
+{% block list %}
+<ul class="panel panel-default">
+	<li class="panel-heading head">
+		<div>
+			<h4>{{ subCategory.name|trans }}</h4>
+		</div>
+	</li>
+	{% if listSubjects|length > 0 %}
+		<ul class="list-group list-group-hover list-group-striped">
+		{% for subject in listSubjects %}
+			<li class="media">
+				<div class="category">
+					<i class="fa fa-envelope fa-5x media-object pull-left enveloppe" aria-hidden="true"></i>
+					<div class="media-body">
+						<a href="{{ path('projet_forum_view_subject', {'category_id': category.id, 'subCategory_id': subCategory.id, 'subject_id': subject.id}) }}" class="body-title">{{ subject.title|trans }}</a>
+					</div>
+				</div>
+			</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p class="nosubject">{{ 'Il n\'y a pas de sujets pour le moment'|trans }}</p>
+	{% endif %}
+</ul>
+{% endblock %}
+
+{% block autre %}
+	{% if is_granted('ROLE_USER') %}
+		<p>
+			<a href="{{ path('projet_forum_add_subject', {'category_id': category.id, 'subCategory_id': subCategory.id}) }}" class="btn btn-lg btn-primary"><span id="add" class="glyphicon glyphicon-pencil"></span>{{ 'Ajouter un sujet'|trans }}</a>
+		</p>
+	{% endif %}
+{% endblock %}

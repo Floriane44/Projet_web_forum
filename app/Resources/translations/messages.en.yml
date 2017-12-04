@@ -1,0 +1,47 @@
+#Sujets: Subject
+'Ajouter un thème': 'Add a theme'
+'Ajouter une catégorie': 'Add a category'
+Accueil: Home
+Connexion: 'Log in'
+Inscription: Registration
+Déconnexion: 'Log out'
+Membres: Members
+'Connecté(e) en tant que': 'Logged in as'
+Profil: Profile
+'À propos': About
+'Vie du forum': 'Forum life'
+'Aide informatique': 'Computer help'
+Présentations: Presentations
+'Nouveau sur le forum ? Venez vous présenter ici pour que nous vous souhaitions la bienvenue ! Vous trouverez également les règles à respecter sur ce forum.': >
+    New on the forum? Come introduce yourself here and we will welcome you! 
+    You will also find the rules that you have to follow on this forum.
+'Présentez-vous !': 'Introduce yourself!'
+'Règle du forum': 'Rules of the forum'
+'Ajouter une sous-catégorie': 'Add a sub-category'
+'Il n''y a pas de sujets pour le moment': 'There is not any topic for now'
+'Ajouter un sujet': 'Add a topic'
+'Titre du sujet': 'Title of the topic'
+'Formulaire de sujet': 'Topic form'
+Envoyer: Send
+'Modifié le': 'Modified on'
+'Écrit le': 'Written on'
+Modifier: Edit
+Supprimer: Delete
+Commentaires: Comments
+'Formulaire de commentaire': 'Comment form'
+'Modifier le sujet': 'Edit a topic'
+'Modifier un commentaire': 'Edit a comment'
+'Supprimer le sujet': 'Delete a topic'
+'Supprimer un commentaire': 'Delete a comment'
+'Êtes-vous certain de vouloir supprimer ce commentaire ?': 'Are you sure you want to delete this comment?'
+'Êtes-vous certain de vouloir supprimer le sujet': 'Are you sure you want to delete the topic'
+'Membres du forum': 'Members of the forum'
+'À propos de ce site': 'About this website'
+'Ce site a été développé dans le cadre d''un projet afin de valider le module "Programmation web" de 4ème année à l''école d''ingénieur du numérique ESIEA.': >
+    This website was developed as part of a project to validate the 4th year
+    "Web Programming" module at ESIEA Digital Engineering School.
+'Celui-ci a pour but d''aider celles et ceux qui auront besoin d''aide en informatique, le tout dans une ambiance chaleureuse et conviviale.': >
+    It aims to help people who need help in computer science, all in a warm
+    and friendly atmosphere.
+'Profil de': 'Profile of'
+'Modifier le profil': 'Edit profile'

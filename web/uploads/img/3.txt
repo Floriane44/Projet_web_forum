@@ -1,0 +1,17 @@
+alert("Début d'execution du JS");
+var load = document.getElementById('load');
+load.innerHTML = 'Loaded.';
+load.style.fontWeight="bold";
+load.style.color="green";
+load.style.display="block";
+load.style.position="absolute";
+load.style.top="100px";
+load.style.left="100px";
+var rectangle = document.getElementById('rectangle');
+/*rectangle.style.width="2em";
+rectangle.style.height="2em";
+rectangle.style.backgroundColor="red";
+rectangle.style.animationDuration = "5s";
+rectangle.style.animationName = "slidein";
+rectangle.style.animationIterationCount = "infinite";
+rectangle.style.animationDirection = "alternate";*/

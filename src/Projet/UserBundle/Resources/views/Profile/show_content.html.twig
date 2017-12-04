@@ -1,0 +1,44 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show container">
+    <div class="row">
+    	<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+    		<div class="panel panel-info">
+			    <div class="panel-heading">
+					<h3 class="panel-title">{% if app.request.locale == 'fr' %} Profil de {% else %} Profile of {% endif %} {{ user.username }}</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+        	    		<div class="col-md-3 col-lg-3 " align="center">
+						{% if user.image is not null %}
+							<p><img src="{{ asset(user.image.webPath) }}" alt="{{ asset(user.image.alt) }}" width="90px" height="90px"></p>
+						{% else %}
+							<img src="{{ asset('bundles/projetforum/img/avatar.png') }}" alt="no avatar" width="90px" height="90px">
+						{% endif %}
+						</div>
+						<div class=" col-md-9 col-lg-9 "> 
+            				<table class="table table-user-information">
+            					<tbody>
+            						<tr>
+          			  					<td>{{ 'profile.show.username'|trans }} : </td>
+            							<td>{{ user.username }}</td>
+	            					</tr>
+    	       		 				<tr>
+        	    						<td>{{ 'profile.show.email'|trans }} : </td>
+            							<td>{{ user.email }}</td>
+            						</tr>
+            					</tbody>
+            				</table>
+            				{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+								{% if user == app.user %}
+			    					<a class="btn btn-info" href="{{ path('fos_user_profile_edit') }}">{% if app.request.locale == 'fr' %} Modifier le profil {% else %} Edit profile {% endif %}</a>
+			    					<a class="btn btn-info" href="{{ path('fos_user_change_password') }}">{% if app.request.locale == 'fr' %} Modifier le mot de passe {% else %} Edit password {% endif %}</a>
+			    				{% endif %}
+			    			{% endif %}
+				    	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

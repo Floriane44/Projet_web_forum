@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+<head>
+	<title> Forum </title>
+	<meta http-equiv="Content-Type" content="text/html"; charset="utf-8" />
+	{% stylesheets 'bundles/projetforum/css/*' filter='cssrewrite, ?scssphp' %}
+		<link rel="stylesheet" media="screen" type="text/css" title="Design" href="{{ asset_url }}" />
+	{% endstylesheets %}
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<img src="{{ asset('bundles/projetforum/img/banniere.jpg') }}" alt="Bannière du forum" class="img-responsive center-block" width="96%" />
+		</div>
+	</div>
+	<div class="container">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+          		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+            		<span class="icon-bar"></span>
+          		</button>
+          	</div>
+          	<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="{{ path('projet_forum_homepage') }}">{{ 'Accueil'|trans }}</a></li>
+					{% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+						<li><a href="{{ path('fos_user_security_login') }}">{{ 'Connexion'|trans }}</a></li>
+						<li><a href="{{ path('fos_user_registration_register') }}">{{ 'Inscription'|trans }}</a></li>
+					{% else %}
+						<li><a href="{{ path('fos_user_profile_show') }}">{{ 'Profil'|trans }}</a></li>
+						<li><a href="{{ path('fos_user_security_logout') }}">{{ 'Déconnexion'|trans }}</a></li>
+					{% endif %}
+					<li><a href="{{ path('projet_forum_listmembers') }}">{{ 'Membres'|trans }}</a></li>
+					<li><a href="{{ path('projet_forum_apropos') }}">{{ 'À propos'|trans }}</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="container">
+		{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        	<p>{{ 'Connecté(e) en tant que'|trans }} <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a></p>
+        {% endif %}
+        
+		<h1 style="color: #449; padding-bottom: 2em;">Forum</h1>
+		{% block repere %}
+		{% endblock %}
+		<div class="row">
+    	    <section class="col-sm-12">
+				{% block list %}
+    			{% endblock %}
+    		</section>
+    	</div>
+    	<div>
+    		{% block autre %}
+	    	{% endblock %}
+    	</div>
+  	</div>
+
+  	<footer class="container-fluid text-center bg-lightgray">
+        <div style="margin-top:25px;">
+        	<p>
+        		<img src="{{ asset('bundles/projetforum/img/anglais.png') }}" alt="Drapeau Angleterre">
+        		<a href="{{ path(app.request.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'en'})) }}">EN</a>
+        		<img src="{{ asset('bundles/projetforum/img/français.png') }}" alt="Drapeau France" id="france">
+        		<a href="{{ path(app.request.get('_route'), app.request.attributes.get('_route_params')|merge({'_locale': 'fr'})) }}">FR</a>
+        	</p>
+            <p>Web development and Web design By : <a href="https://www.linkedin.com/in/floriane-peltier-04aaa2140/" target="_blank">Floriane Peltier</a></p>
+        </div>
+	</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  {% block javascript %}
+  {% endblock %}
+</body>

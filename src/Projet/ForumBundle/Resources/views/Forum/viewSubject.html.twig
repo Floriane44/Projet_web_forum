@@ -1,0 +1,108 @@
+{% extends "ProjetForumBundle::layout.html.twig" %}
+
+{% block repere %}
+	<ul class="breadcrumb" id="help" data="{{ app.request.locale }}">
+		<li><a href="{{ path('projet_forum_homepage') }}">{{ 'Accueil'|trans }}</a></li>
+		<li><a href="{{ path('projet_forum_view_category', {'category_id': category.id}) }}">{{ category.name|trans }}</a></li>
+		<li><a href="{{ path('projet_forum_view_subCategory', {'category_id': category.id, 'subCategory_id': subCategory.id}) }}">{{ subCategory.name|trans }}</a></li>
+		<li class="active word">{{ subject.title|trans }}</li>
+	</ul>
+{% endblock %}
+
+{% block list %}
+<ul class="panel panel-default">
+	<li class="panel-heading head">
+		<div>
+			<h4 class="word">{{ subject.title|trans }}</h4>
+		</div>
+	</li>
+	<ul class="list-group list-group-hover list-group-striped">
+		<li class="media">
+			<ul class="list-group">
+				<p class="list-group-item-heading author"><a href="{{ path('fos_user_profile_show_name', {'user_id': subject.user.id}) }}">{{ subject.user.username }}</a><span class="list-group-item-heading pull-right creat"> 
+				{% if subject.updatedAt is not null %}
+					{{ 'Modifié le'|trans }} {{ subject.updatedAt|localizeddate('short', 'none') }}
+				{% else %}
+					{{ 'Écrit le'|trans }} {{ subject.date|localizeddate('short', 'none') }}
+				{% endif %}
+				</span></p>
+				{% if subject.user.image is not null %}
+					<img class="media-object pull-left" src="{{ asset(subject.user.image.webPath) }}" alt="{{ asset(subject.user.image.alt) }}" width="120px" height="120px">
+				{% else %}
+					<img class="media-object pull-left" src="{{ asset('bundles/projetforum/img/avatar.png') }}" alt="no avatar" width="120px" height="120px">
+				{% endif %}
+			</ul>	
+			<div class="media-body category subject-content">
+				<p class="col-md-12">{{ subject.content|raw }}</p>
+			</div>
+		</li>
+	</ul>
+	<li class="panel-heading head">
+		<div>
+			<h4>{{ 'Commentaires'|trans }}</h4>
+		</div>
+	</li>
+	{% if listComments|length > 0 %}
+		<ul class="list-group list-group-hover list-group-striped">
+		{% for comment in listComments %}
+
+			<li class="media">
+				<ul class="list-group">
+					<p class="list-group-item-heading author"><a href="{{ path('fos_user_profile_show_name', {'user_id': comment.user.id}) }}">{{ comment.user.username }}</a><span class="list-group-item-heading pull-right creat">
+					{% if comment.updatedAt is not null %} 
+						{{ 'Modifié le'|trans }} {{ comment.updatedAt|localizeddate('short', 'none') }} 
+					{% else %} 
+						{{ 'Écrit le'|trans }} {{ comment.date|localizeddate('short', 'none') }}
+					{% endif %}</span></p>
+					{% if comment.user.image is not null %}
+						<img class="media-object pull-left" src="{{ asset(comment.user.image.webPath) }}" alt="{{ asset(comment.user.image.alt) }}" width="90px" height="90px">
+					{% else %}
+						<img class="media-object pull-left" src="{{ asset('bundles/projetforum/img/avatar.png') }}" alt="no avatar" width="90px" height="90px">
+					{% endif %}
+				</ul>
+				<div class="media-body category subject-content">
+					<div class="col-md-12">{{ comment.content|raw }}</div>
+					{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+						{% if is_granted('ROLE_ADMIN') or comment.user == app.user %}
+							<a href="{{ path('projet_forum_edit_comment', {'category_id': category.id, 'subCategory_id': subCategory.id, 'subject_id': subject.id, 'comment_id': comment.id}) }}">{{ 'Modifier'|trans }}</a> - <a href="{{ path('projet_forum_delete_comment', {'category_id': category.id, 'subCategory_id': subCategory.id, 'subject_id': subject.id, 'comment_id': comment.id}) }}">{{ 'Supprimer'|trans }}</a>
+						{% endif %}
+					{% endif %}
+				</div>
+			</li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+</ul>
+{% endblock %}
+
+{% block autre %}
+	{% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+		{% if is_granted('ROLE_ADMIN') or subject.user == app.user %}
+			<a href="{{ path('projet_forum_edit_subject', {'category_id': category.id, 'subCategory_id': subCategory.id, 'subject_id': subject.id}) }}" class="btn btn-lg btn-success" id="bouton1"><span class="fa fa-pencil-square-o fa-lg" id="add"></span>{{ 'Modifier le sujet'|trans }}</a>
+
+			<br />
+
+			<a href="{{ path('projet_forum_delete_subject', {'category_id': category.id, 'subCategory_id': subCategory.id, 'subject_id': subject.id}) }}" class="btn btn-lg btn-danger" id="bouton2"><span class="glyphicon glyphicon-trash" id="add2"></span>{{ 'Supprimer le sujet'|trans }}</a>
+		{% endif %}
+		<br /><br /><br /><br />
+		{{ include("ProjetForumBundle:Forum:formComment.html.twig") }}
+	{% endif %}
+{% endblock %}
+
+{% block javascript %}
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+	{% javascripts 'bundles/projetforum/jquery/summernote-fr-FR.js' %}
+  		<script type="text/javascript" src="{{ asset_url }}"></script>
+  	{% endjavascripts %}
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var language = $('#help').attr('data');
+		if (language == 'fr') {
+			$('#projet_forumbundle_comment_content').summernote({height: 300, lang: 'fr-FR'});	
+		}
+  		else {
+  			$('#projet_forumbundle_comment_content').summernote({height: 300});	
+  		}
+	});
+	</script>
+{% endblock %}

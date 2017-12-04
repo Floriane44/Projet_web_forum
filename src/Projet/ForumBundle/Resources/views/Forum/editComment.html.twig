@@ -1,0 +1,33 @@
+{% extends "ProjetForumBundle::layout.html.twig" %}
+
+{% block repere %}
+	<ul class="breadcrumb" id="help" data="{{ app.request.locale }}">
+		<li><a href="{{ path('projet_forum_homepage') }}">{{ 'Accueil'|trans }}</a></li>
+		<li><a href="{{ path('projet_forum_view_category', {'category_id': category.id}) }}">{{ category.name|trans }}</a></li>
+		<li><a href="{{ path('projet_forum_view_subCategory', {'category_id': category.id, 'subCategory_id': subCategory.id}) }}">{{ subCategory.name|trans }}</a></li>
+		<li><a href="{{ path('projet_forum_view_subject', {'category_id': category.id, 'subCategory_id': subCategory.id, 'subject_id': subject.id}) }}">{{ subject.title|trans }}</a></li>
+	</ul>
+
+  	<h2>{{ 'Modifier un commentaire'|trans }}</h2>
+
+  	{{ include("ProjetForumBundle:Forum:formComment.html.twig") }}
+
+{% endblock %}
+
+{% block javascript %}
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
+	{% javascripts 'bundles/projetforum/jquery/summernote-fr-FR.js' %}
+  		<script type="text/javascript" src="{{ asset_url }}"></script>
+  	{% endjavascripts %}
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var language = $('#help').attr('data');
+		if (language == 'fr') {
+			$('#projet_forumbundle_comment_content').summernote({height: 300, lang: 'fr-FR'});	
+		}
+  		else {
+  			$('#projet_forumbundle_comment_content').summernote({height: 300});	
+  		}
+	});
+	</script>
+{% endblock %}
