@@ -107,3 +107,20 @@ assetic:
         jsqueeze:   ~
         scssphp:
             formatter: 'Leafo\ScssPhp\Formatter\Compressed'
+
+easy_admin:
+    entities:
+        Theme:
+            class: Projet\ForumBundle\Entity\Theme
+        Category:
+            class: Projet\ForumBundle\Entity\Category
+        SubCategory:
+            class: Projet\ForumBundle\Entity\SubCategory
+        Subject:
+            class: Projet\ForumBundle\Entity\Subject
+        Comment:
+            class: Projet\ForumBundle\Entity\Comment
+        Image:
+            class: Projet\UserBundle\Entity\Image
+        User:
+            class: Projet\UserBundle\Entity\User

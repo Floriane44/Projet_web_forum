@@ -63,3 +63,8 @@ fos_user_change_password:
     prefix: /{_locale}/profile
     requirements:
         _locale: en|fr
+
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/AdminController.php"
+    type:     annotation
+    prefix:   /admin

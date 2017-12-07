@@ -46,6 +46,10 @@ class Category
      */
     private $theme;
 
+    public function __toString(){
+        return "Category " . $this->name;
+    }
+
     /**
      * Get id
      *

@@ -33,6 +33,10 @@ class Theme
      */
     private $categories;
 
+    public function __toString(){
+        return "Theme " . $this->name;
+    }
+
     /**
      * Get id
      *

@@ -73,6 +73,10 @@ class Subject
         $this->date = new \Datetime();
     }
 
+    public function __toString(){
+        return "Subject " . $this->title;
+    }
+
     /**
     * @ORM\PreUpdate
     */

@@ -61,6 +61,10 @@ class Comment
         $this->date = new \Datetime();
     }
 
+    public function __toString(){
+        return "Comment " . $this->content;
+    }
+
     /**
     * @ORM\PreUpdate
     */

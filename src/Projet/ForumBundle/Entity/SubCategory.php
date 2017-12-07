@@ -24,7 +24,7 @@ class SubCategory
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, unique=true)
+     * @ORM\Column(name="name", type="string", length=255, unique=false)
      */
     private $name;
 
@@ -38,6 +38,10 @@ class SubCategory
      * @ORM\OneToMany(targetEntity="Projet\ForumBundle\Entity\Subject", mappedBy="subCategory")
      */
     private $subject;
+
+    public function __toString(){
+        return "SubCategory " . $this->name;
+    }
 
     /**
      * Get id

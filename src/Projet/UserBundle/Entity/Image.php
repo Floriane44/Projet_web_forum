@@ -55,6 +55,10 @@ class Image
     // On ajoute cet attribut pour y stocker le nom du fichier temporairement
     private $tempFilename;
 
+    public function __toString(){
+        return "Image " . $this->alt;
+    }
+
     /**
      * Get id
      *
